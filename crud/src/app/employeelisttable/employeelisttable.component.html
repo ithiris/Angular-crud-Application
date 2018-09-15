@@ -1,0 +1,21 @@
+<h2>Read data & (Delete data):</h2>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th width=400>Name</th>
+    <th width=400>Position</th>
+    <th width=250>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let employee of employees; let i=index">
+    <td>{{employee.employeeName}}</td>
+    <td>{{employee.employeeJob}}</td>
+    <td>
+      <a class="btn btn-success" (click)="editEmployee(i)">Edit</a>
+      <!--<a class="btn btn-danger" (click)="deleteEmployee(i)">Delete</a>-->
+    </td>
+  </tr>
+
+  </tbody>
+</table>

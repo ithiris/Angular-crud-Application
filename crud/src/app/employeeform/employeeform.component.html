@@ -1,0 +1,48 @@
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()"><fieldset><legend>Employee Info</legend>
+  <div class="row ">
+
+
+
+
+
+
+
+    <div class="col-lg-3">
+      <div class="form-group form-md-line-input form-md-floating-label">
+        <input class="form-control " id="employeeName" type="text" formControlName="employeeName">
+        <label>employeeName<span class="required">*</span></label>
+      </div>
+      <div *ngIf="employeeForm.get('employeeName').invalid && isFormSubmitted" class="validateMessage">
+        employeeName is Required
+      </div>
+    </div>
+
+
+
+    <div class="col-lg-3">
+      <div  class="form-group form-md-line-input  form-md-floating-label">
+        <div class="input-group">
+          <input  class="form-control"  id="employeeJob" type="text" formControlName="employeeJob" >
+          <label>employeeJob<span  class="required">*</span></label>
+          <span  class="input-group-addon">
+                   <i class="icon-color fa fa-user"></i>
+                </span>
+        </div>
+      </div>
+      <div *ngIf="employeeForm.get('employeeJob').invalid && isFormSubmitted" class="validateMessage">
+        Job is Required
+      </div>
+    </div>
+
+
+
+  </div>
+</fieldset>
+
+
+  <div class="col-xs-12">
+  <button class="btn btn-success" type="submit">{{editMode ? 'Update': 'Add'}}</button>
+<button class="btn btn-danger" type="button" (click)="onDelete()" *ngIf="editMode">Delete</button>
+<button class="btn btn-primary" type="button" (click)="onClear()">Clear</button>
+  </div>
+</form>
